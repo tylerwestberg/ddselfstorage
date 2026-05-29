@@ -15,6 +15,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Manrope, "Segoe UI", Tahoma, sans-serif;
@@ -46,10 +50,64 @@ p {
   margin: 0 0 12px;
 }
 
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--line);
+  background: rgba(246, 247, 243, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.top-nav-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  font-family: Barlow, "Arial Narrow", sans-serif;
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.top-links {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.top-links a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.top-links a:hover {
+  color: var(--ink);
+  background: #eef4ef;
+}
+
+.top-links a.active {
+  color: var(--ink);
+  background: #e6f0e8;
+}
+
 .hero {
-  padding: 72px 20px 48px;
+  padding: 56px 20px 48px;
   position: relative;
   overflow: hidden;
+}
+
+.page-hero {
+  padding-top: 34px;
 }
 
 .hero-inner {
@@ -185,6 +243,62 @@ main {
   margin-bottom: 8px;
 }
 
+.units-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.unit-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  background: linear-gradient(180deg, #ffffff, #fafaf6);
+}
+
+.faq-wrap {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.faq-wrap details {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.faq-wrap summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.faq-wrap p {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+}
+
+.info-card a {
+  color: var(--brand-dark);
+}
+
+.map-frame-wrap {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.map-frame {
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  border: 0;
+}
+
 .cta {
   text-align: center;
 }
@@ -218,11 +332,17 @@ main {
 
 @media (max-width: 860px) {
   .section-grid,
-  .highlights-wrap {
+  .highlights-wrap,
+  .units-wrap {
     grid-template-columns: 1fr;
   }
 
   .section {
     padding: 20px;
+  }
+
+  .top-nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
